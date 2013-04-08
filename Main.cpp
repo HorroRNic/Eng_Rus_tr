@@ -40,9 +40,6 @@
 				FILE* f = fopen("Translater.txt","a+"); 
 				if(f != NULL) 
 				{
-					std::cout << "Введите кол-во записей:";
-					//std::cin >> nk;
-
 
 				for (i=0;i<nk;i++)
 				{
@@ -73,25 +70,6 @@ void deleteD()
 FILE* f = fopen("Translater.txt","w"); 
 if(f != NULL) 
 {
-	//std::cin >> nk;
-
-
-/*for (i=0;i<nk;i++)
-{
-	std::cout << "\nВведите индекс перевода:\n";
-	//std::cin >> indexT;
-	clInput(indexT);
-
-	std::cout << "Введите Английское слово:\n";
-	//std::cin >> engT;
-	clInput(engT);
-
-	std::cout << "Введите перевод \'Русский\':\n";
-	//std::cin >> rusT;
-	clInput(rusT);
-
-fprintf(f,"%s %s %s \n",indexT,engT,rusT);
-}*/
 fclose(f);
 }
 else printf("Невозможно открыть файл\n"); 
@@ -107,7 +85,7 @@ std::cout << "-------------------\n";
 FILE* f = fopen("Translater.txt","r");
 if(f != NULL) 
 { 
-int rez;
+int rez=0;
 do
 {
 	rez=fscanf(f,"%s %s %s \n",indexT,engT,rusT); 
@@ -154,9 +132,6 @@ if(f != NULL)
 				puts(engT);
 				puts(rusT);
 				};
-	/*puts(indexT);
-	puts(engT);
-	puts(rusT);*/
 	}
 
 fclose(f); 
@@ -196,10 +171,10 @@ int main()
 	do 
 	{
 	std::cin >> menu_a;
-	//****************1***********
+	//****************1-ADD***********
 if (menu_a==1) English_Rus_Translate.add();
 	
-	//****************2***********
+	//****************2-FIND***********
 if (menu_a==2) {
 char cWord[5];
 std::cout << "Введите имя индекса для поиска:\n";
@@ -207,10 +182,10 @@ std::cin >> cWord;
 English_Rus_Translate.Find(cWord);
 }
 		
-	//****************3***********
+	//****************3-OUT***********
 if (menu_a==3) English_Rus_Translate.out();
 
-	//****************4***********
+	//****************4-DELETE***********
 if (menu_a==4) English_Rus_Translate.deleteD();
 	}
 	while (menu_a!=0);
